@@ -1,28 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe ShortenedUrlsController, type: :controller do
-  describe "GET root" do
-    it "renders the new template" do
-    end
-  end
-
-  describe "GET new" do
-    it "renders the new template" do
-      get :new
-      expect(response).to render_template("new")
-    end
-  end
 
   describe "POST create" do
-    context "valid original url" do
+    context "given a valid original url" do
+
       it "creates a new ShortenedUrl resource" do
+        expect{
+          post :create, params: { shortened_url: FactoryGirl.attributes_for(:shortened_url) }
+        }.to change(ShortenedUrl,:count).by(1)
       end
 
-      it "renders the show template" do
+      it "renders the show page for the shortened url" do
+        post :create, params: { shortened_url: FactoryGirl.attributes_for(:shortened_url) }
+        expect(response).to redirect_to ShortenedUrl.last
       end
 
-      it "returns the ShortenedUrl resource" do
-      end
     end
 
     context 'invalid original url' do
