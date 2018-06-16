@@ -21,12 +21,12 @@ RSpec.describe ShortenedUrlsController, type: :controller do
     context 'given an invalid original url' do
       it "does not create a new ShortenedUrl resource" do
         expect{
-          post :create, params: { shortened_url: FactoryGirl.attributes_for(:shortened_url) }
+          post :create, params: { shortened_url: FactoryGirl.attributes_for(:invalid_shortened_url) }
         }.to_not change(ShortenedUrl,:count)
       end
 
       it "renders the :new template" do
-        post :create, params: { shortened_url: FactoryGirl.attributes_for(:shortened_url) }
+        post :create, params: { shortened_url: FactoryGirl.attributes_for(:invalid_shortened_url) }
         expect(response).to render_template :new
       end
     end
