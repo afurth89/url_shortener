@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require unobtrusive_flash
+//= require unobtrusive_flash_ui

@@ -12,6 +12,9 @@ class ShortenedUrlsController < ApplicationController
     @shortened_url = ShortenedUrl.new(shortened_url_params)
     @shortened_url.save!
     redirect_to shortened_url_path(@shortened_url)
+  rescue
+    flash.now[:warning] = "'#{@shortened_url.original_url}' is not a valid URL"
+    render :new
   end
 
   private
