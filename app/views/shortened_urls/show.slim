@@ -1,3 +1,6 @@
-h1 
-  | Original URL
-  = @shortened_url.original_url
+h1 Success!
+p
+  | You can access 
+  bold= @shortened_url.original_url
+  |  by visiting 
+  bold= "#{ENV['HOST']}#{@shortened_url.stub}"
