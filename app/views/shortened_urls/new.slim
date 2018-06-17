@@ -1,3 +1,14 @@
+- if flash.any?
+  #flash.container
+    - flash.each do |name, msg|
+      - if !flash.notice
+        = content_tag :div, class: "alert alert-#{name} alert-dismissable", role: "alert" do
+          button.close type="button" data-dismiss="alert"
+            span aria-hidden="true"
+              | &times;
+            span.sr-only
+              | Close
+          = msg
 .container-fluid
   .row
     .col-md-3-offset
@@ -8,4 +19,4 @@
           #new-shortened-url-form
             = bootstrap_form_for(:shortened_url, url: shortened_urls_path, local: true) do |f|
               = f.text_field :original_url, label: 'Original Url'
-              = f.submit "Submit"
+              = f.submit "Submit", class: 'btn btn-primary'
