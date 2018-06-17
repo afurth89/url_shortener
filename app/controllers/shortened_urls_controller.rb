@@ -11,8 +11,6 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def create
-    # https://www.railsmine.net/2010/09/ruby-way-to-do-url-validation.html
-    # https://gorails.com/forum/best-way-to-validate-url
     @shortened_url = ShortenedUrl.new(shortened_url_params)
     raise StandardError unless UrlValidator.valid? @shortened_url.original_url
     @shortened_url.save!
