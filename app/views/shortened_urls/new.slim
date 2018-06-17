@@ -18,5 +18,5 @@
           h1 Paste a link to shorten it
           #new-shortened-url-form
             = bootstrap_form_for(:shortened_url, url: shortened_urls_path, local: true) do |f|
-              = f.text_field :original_url, label: 'Original Url'
+              = f.text_field :original_url, label: 'Original Url', value: 'https://', autocomplete: false
               = f.submit "Submit", class: 'btn btn-primary'
