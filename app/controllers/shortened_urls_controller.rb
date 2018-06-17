@@ -1,4 +1,8 @@
 class ShortenedUrlsController < ApplicationController
+  def index
+    redirect_to new_shortened_url_path
+  end
+
   def new
   end
 
