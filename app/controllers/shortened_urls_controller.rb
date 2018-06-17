@@ -14,10 +14,11 @@ class ShortenedUrlsController < ApplicationController
     # https://www.railsmine.net/2010/09/ruby-way-to-do-url-validation.html
     # https://gorails.com/forum/best-way-to-validate-url
     @shortened_url = ShortenedUrl.new(shortened_url_params)
+    raise StandardError unless UrlValidator.valid? @shortened_url.original_url
     @shortened_url.save!
     redirect_to shortened_url_path(@shortened_url)
   rescue
-    flash.now[:warning] = "'#{@shortened_url.original_url}' is not a valid URL"
+    flash.now[:warning] = "It looks like '#{@shortened_url.original_url}' is not a valid URL"
     render :new
   end
 
