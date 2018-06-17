@@ -1,4 +1,5 @@
 h1 Paste a link to shorten it
-= form_for(:shortened_url, url: shortened_urls_path, local: true) do |f|
-  = f.text_field :original_url, label: 'Original Url'
-  = f.submit "Submit"
+#new-shortened-url-form
+  = form_for(:shortened_url, url: shortened_urls_path, local: true) do |f|
+    = f.text_field :original_url, label: 'Original Url'
+    = f.submit "Submit"
