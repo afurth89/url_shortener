@@ -1,6 +1,13 @@
-h1 Success!
-p
-  | You can access 
-  bold= @shortened_url.original_url
-  |  by visiting 
-  bold= "#{ENV['HOST']}#{@shortened_url.stub}"
+.container-fluid
+  .row
+    .col-md-3-offset
+    .col-md-6
+      .panel.panel-default
+        .panel-body
+          h1 Success!
+          p
+            | You can access 
+            = @shortened_url.original_url
+            |  by visiting 
+            = "#{ENV['HOST']}#{@shortened_url.stub}"
+          a.btn.btn-warning href=new_shortened_url_path Shorten another Url
