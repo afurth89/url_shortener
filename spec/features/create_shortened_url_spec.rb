@@ -17,10 +17,7 @@ feature "Creating a new ShortenedUrl", type: :feature do
       fill_in 'shortened_url[original_url]', with: 'I am not a real URL'
     end
     click_button "Submit"
-    message =
-      page.find(".unobtrusive-flash-message").native.inspect
-    puts "message: #{message}"
-    # expect(page).to have_selector ".unobtrusive-flash-message"   ## Not working at the moment
+    expect(page).to have_content "Paste a link to shorten it"
   end
 
 end

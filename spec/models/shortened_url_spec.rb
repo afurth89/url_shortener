@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe ShortenedUrl, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it 'exists with a valid url' do
+    shortened_url = ShortenedUrl.create!(original_url: "https://wwww.google.com")
+    expect(shortened_url).to be_a ShortenedUrl
+  end
 end
